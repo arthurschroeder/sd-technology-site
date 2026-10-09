@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SD Technology — Landing page animada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+<style>
+:root{--bg:#050a14;--bg2:#08101f;--card:#0a1424;--line:#14233d;--blue:#1677ff;--neon:#2e8bff;--text:#f2f6ff;--mut:#9fb0cc;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* header */
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;background:rgba(5,10,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;flex-direction:column;line-height:1;font-weight:800}
+.logo b{font-size:34px;font-style:italic;letter-spacing:-2px;background:linear-gradient(120deg,#6db3ff,#1677ff 60%,#0b4fd1);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 10px rgba(22,119,255,.6))}
+.logo small{font-size:9px;letter-spacing:2.4px;font-weight:600;margin-top:2px}
+nav{display:flex;gap:34px;font-size:15px;font-weight:500}
+nav a{color:var(--text);text-decoration:none;position:relative;padding:6px 0}
+nav a.on{color:var(--neon)}
+nav a.on:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--neon);box-shadow:0 0 8px var(--neon)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;font:600 15px Inter,sans-serif;padding:14px 26px;border:1px solid transparent;color:#fff;background:var(--blue);box-shadow:0 0 28px rgba(22,119,255,.55);text-decoration:none;cursor:pointer}
+.btn.o{background:transparent;border-color:#3a4d6e;box-shadow:none}
+.btn.s{padding:11px 20px}
+.tag{display:inline-block;border:1px solid #1b4a9a;background:rgba(22,119,255,.08);color:#4d9bff;font-weight:600;font-size:12.5px;padding:7px 16px;border-radius:999px}
+h1,h2{margin:0;letter-spacing:-1.5px;line-height:1.05}
+h1{font-size:clamp(40px,6vw,56px);font-weight:800;margin:22px 0 20px}
+h2{font-size:clamp(28px,4vw,38px);font-weight:800;margin:14px 0 10px}
+.b{color:var(--neon)}
+p{color:#cdd8ec;line-height:1.55;margin:0}
+section{position:relative}
+/* hero */
+#hero{min-height:100vh;padding:130px 0 70px;display:flex;align-items:center;
+background:radial-gradient(60% 70% at 78% 40%,rgba(22,119,255,.28),transparent 70%),var(--bg)}
+#hero .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:20px;align-items:center;width:100%}
+#hero p{font-size:18px;max-width:440px}
+.ctas{display:flex;gap:16px;margin:34px 0 40px;flex-wrap:wrap}
+.perks{display:flex;gap:30px;flex-wrap:wrap;font-size:14px}
+.perks span{display:flex;align-items:center;gap:10px}
+.perks .i{font-size:26px;color:var(--neon)}
+/* devices */
+.stage{position:relative;height:430px;perspective:1400px}
+.laptop{position:absolute;left:4%;top:20px;width:78%;transform:rotateY(-14deg) rotateX(4deg) rotateZ(-3deg);animation:fl 6s ease-in-out infinite}
+.screen{aspect-ratio:16/10;background:linear-gradient(145deg,#0a1630,#04080f);border:6px solid #1b2230;border-bottom-width:8px;border-radius:14px;padding:12px 14px;box-shadow:0 0 70px rgba(22,119,255,.55),inset 0 0 40px rgba(22,119,255,.2);overflow:hidden;position:relative}
+.base{height:12px;margin:0 -6%;background:linear-gradient(#aab4c6,#586277);border-radius:0 0 18px 18px;box-shadow:0 20px 50px rgba(22,119,255,.55)}
+.mnav{display:flex;justify-content:space-between;font-size:7px;color:#aab;align-items:center}
+.mnav i{background:var(--blue);padding:3px 7px;border-radius:9px;color:#fff;font-style:normal}
+.mh{font-size:15px;font-weight:800;margin:20px 0 6px;max-width:55%;line-height:1.1;letter-spacing:-.5px}
+.ml{height:4px;background:#25344f;border-radius:3px;margin:5px 0;max-width:50%}
+.mb{display:inline-block;background:var(--blue);font-size:7px;padding:4px 8px;border-radius:9px;margin-top:8px}
+.mimg{position:absolute;right:12px;top:30px;width:38%;height:62%;border-radius:8px;background:linear-gradient(135deg,#243a66,#0c1a36 55%,#1a62d8);box-shadow:0 0 22px rgba(22,119,255,.5)}
+.mimg:after{content:"";position:absolute;inset:12px;border-radius:6px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 6px,transparent 6px 14px)}
+.phone{position:absolute;right:1%;top:70px;width:25%;transform:rotateY(-14deg) rotateZ(3deg);animation:fl 5s ease-in-out -1.5s infinite}
+.phone .scr{aspect-ratio:9/18;background:linear-gradient(160deg,#0b1a38,#050a14);border:5px solid #20293a;border-radius:24px;padding:14px 10px;box-shadow:0 0 50px rgba(22,119,255,.6);overflow:hidden}
+.phone .mh{font-size:12px;max-width:100%;margin-top:26px}
+.phone .mimg{position:static;width:100%;height:60px;margin-top:10px}
+@keyframes fl{50%{translate:0 -14px}}
+.glow{position:absolute;inset:auto 0 -20px 6%;height:60px;background:radial-gradient(closest-side,rgba(22,119,255,.7),transparent);filter:blur(14px);animation:pu 3s ease-in-out infinite}
+@keyframes pu{50%{opacity:.4}}
+/* services */
+#servicos{padding:90px 0 80px;background:var(--bg2);border-top:1px solid var(--line);min-height:100vh;display:flex;align-items:center}
+.center{text-align:center}
+.center p{font-size:17px;color:var(--mut)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.card{display:flex;gap:20px;align-items:flex-start;background:linear-gradient(160deg,#0c1830,#08111f);border:1px solid var(--line);border-radius:18px;padding:30px 24px;position:relative}
+.card .ic{width:62px;height:62px;border-radius:14px;background:#0b1f42;display:grid;place-items:center;font-size:30px;color:var(--neon);flex:none;box-shadow:0 0 22px rgba(22,119,255,.25)}
+.card h3{margin:0 0 8px;font-size:17px}
+.card p{font-size:13.5px;color:var(--mut)}
+.card .go{position:absolute;right:18px;bottom:14px;color:var(--neon)}
+/* works */
+#trabalhos{padding:90px 0;min-height:100vh;display:flex;align-items:center;background:var(--bg)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+.w{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.w .t{height:165px;position:relative;overflow:hidden;padding:14px}
+.w .t b{display:block;font-size:15px;line-height:1.05;letter-spacing:-.4px;max-width:50%;margin-top:30px;font-weight:800}
+.w .t:before{content:"";position:absolute;left:14px;right:14px;top:12px;height:5px;border-radius:3px;background:rgba(255,255,255,.15)}
+.w .t:after{content:"";position:absolute;right:12px;bottom:-14px;width:36%;height:80%;border-radius:14px 14px 0 0;background:rgba(255,255,255,.1);border:3px solid rgba(255,255,255,.2)}
+.w span{display:block;padding:14px 16px;font-weight:600;font-size:14px}
+.t1{background:linear-gradient(135deg,#2a2a2e,#0b0b0d);color:#fff}.t1 b{color:#fff}
+.t2{background:linear-gradient(135deg,#0d2f6b,#050c1c);color:#fff}
+.t3{background:linear-gradient(135deg,#ffc9cf,#f08fa0);color:#2a0d16}
+.t4{background:linear-gradient(135deg,#4a2a08,#120a03);color:#ffb64d}
+/* cta */
+#contato{padding:90px 0;min-height:100vh;display:flex;align-items:center;background:var(--bg2);border-top:1px solid var(--line)}
+#contato .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+#contato p{font-size:18px;max-width:440px;margin-bottom:34px;color:var(--mut)}
+.btn.wa{padding:22px 38px;font-size:18px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#091222;border:1px solid var(--line);border-radius:20px;padding:20px}
+.st{display:flex;gap:14px;align-items:center;background:#0b1830;border:1px solid var(--line);border-radius:14px;padding:22px 18px}
+.st .i{font-size:30px;color:var(--neon)}
+.st b{display:block;font-size:24px;font-weight:800}
+.st small{color:var(--mut);font-size:13px}
+/* animation */
+[data-r]{opacity:0;transform:translateY(34px) scale(.98);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+[data-r].in{opacity:1;transform:none}
+.stage[data-r]{transform:translateX(80px) scale(.94)}.stage[data-r].in{transform:none}
+.card.in{animation:edge 2.6s ease .9s 1}
+@keyframes edge{40%{border-color:var(--neon);box-shadow:0 0 30px rgba(22,119,255,.4)}}
+/* player */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;height:5px;background:rgba(255,255,255,.08)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),#7ec0ff);box-shadow:0 0 10px var(--neon)}
+.pl{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;width:46px;height:46px;border-radius:50%;border:1px solid #3a4d6e;background:rgba(5,10,20,.85);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:18px}
+.pl:focus-visible,.btn:focus-visible{outline:2px solid #7ec0ff;outline-offset:3px}
+@media(max-width:900px){
+ nav{display:none}header .btn{padding:10px 16px;font-size:13px}
+ #hero .wrap,#contato .wrap{grid-template-columns:1fr}
+ .stage{height:340px}.grid3{grid-template-columns:1fr}.grid4{grid-template-columns:1fr 1fr}
+ .wrap{padding:0 20px}
+}
+@media(prefers-reduced-motion:reduce){[data-r]{opacity:1;transform:none;transition:none}.laptop,.phone,.glow{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="wa" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.2-1.8-.9-.8.6a4 4 0 0 1-1.8-1.8l.6-.8-.9-1.8L9 9.5z"/></symbol>
+<symbol id="ar" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+<symbol id="ph" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+<symbol id="ch" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></symbol>
+<symbol id="mon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+<symbol id="hs" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2" y="14" width="4" height="6" rx="1.5"/><rect x="18" y="14" width="4" height="6" rx="1.5"/><path d="M20 20c0 1.5-2 2-5 2"/></symbol>
+<symbol id="ly" viewBox="0 0 24 24"><path d="M12 2l10 5-10 5L2 7l10-5zM2 12l10 5 10-5M2 17l10 5 10-5"/></symbol>
+<symbol id="tr" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></symbol>
+</svg>
+
+<header><div class="wrap">
+  <div class="logo"><b>SD</b><small>TECHNOLOGY</small></div>
+  <nav><a class="on" href="#hero">Início</a><a href="#servicos">Serviços</a><a href="#trabalhos">Portfólio</a><a href="#hero">Sobre</a><a href="#contato">Contato</a></nav>
+  <a class="btn s" href="https://wa.me/554784931069?text=olaa%20tenho%20interesse%20em%20conhecer%20os%20planos%20mensais" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Fale Conosco</a>
+</div></header>
+
+<section id="hero"><div class="wrap">
+  <div>
+    <span class="tag" data-r>SITES QUE GERAM RESULTADOS</span>
+    <h1 data-r style="--d:.15s">Seu negócio <span class="b">na internet</span> de verdade.</h1>
+    <p data-r style="--d:.3s">Criamos sites modernos, rápidos e que realmente atraem clientes. Leve sua empresa para o próximo nível com a <span class="b">SD Technology</span>.</p>
+    <div class="ctas" data-r style="--d:.45s"><a class="btn" href="#contato"><svg class="i"><use href="#ar"/></svg>Solicitar Orçamento</a><a class="btn o" href="#trabalhos">Ver Portfólio</a></div>
+    <div class="perks" data-r style="--d:.6s">
+      <span><svg class="i"><use href="#bolt"/></svg>Site rápido e seguro</span>
+      <span><svg class="i"><use href="#ph"/></svg>100% responsivo</span>
+      <span><svg class="i"><use href="#ch"/></svg>Focado em resultados</span>
+    </div>
+  </div>
+  <div class="stage" data-r style="--d:.35s">
+    <div class="laptop"><div class="screen">
+      <div class="mnav"><b>SD</b><span>Início &nbsp; Serviços &nbsp; Portfólio &nbsp; Contato</span><i>Fale Conosco</i></div>
+      <div class="mh">Soluções Digitais para o seu negócio</div><div class="ml"></div><div class="ml" style="max-width:40%"></div><span class="mb">Começar agora</span><div class="mimg"></div>
+    </div><div class="base"></div></div>
+    <div class="phone"><div class="scr"><b style="font-size:10px">SD</b><div class="mh">Soluções Digitais para o seu negócio</div><div class="ml"></div><span class="mb">Começar agora</span><div class="mimg"></div></div></div>
+    <div class="glow"></div>
+  </div>
+</div></section>
+
+<section id="servicos"><div class="wrap center">
+  <span class="tag" data-r>NOSSOS SERVIÇOS</span>
+  <h2 data-r style="--d:.1s">Tudo que <span class="b">seu negócio</span> precisa</h2>
+  <p data-r style="--d:.2s">Soluções completas para você vender mais e se destacar no mercado.</p>
+  <div class="grid3" style="text-align:left">
+    <div class="card" data-r style="--d:.3s"><div class="ic"><svg class="i"><use href="#mon"/></svg></div><div><h3>Criação de Sites</h3><p>Sites do simples ao 3D, modernos, rápidos e focados em resultados.</p></div><svg class="i go"><use href="#ar"/></svg></div>
+    <div class="card" data-r style="--d:.5s"><div class="ic"><svg class="i"><use href="#ch"/></svg></div><div><h3>Marketing Digital</h3><p>Estratégias para atrair mais clientes e aumentar suas vendas.</p></div><svg class="i go"><use href="#ar"/></svg></div>
+    <div class="card" data-r style="--d:.7s"><div class="ic"><svg class="i"><use href="#hs"/></svg></div><div><h3>Suporte 24 Horas</h3><p>Atendimento sempre que precisar, para seu negócio nunca parar.</p></div><svg class="i go"><use href="#ar"/></svg></div>
+  </div>
+</div></section>
+
+<section id="trabalhos"><div class="wrap">
+  <div class="head"><div>
+    <span class="tag" data-r>ALGUNS DOS NOSSOS TRABALHOS</span>
+    <h2 data-r style="--d:.1s">Sites profissionais que <span class="b">geram resultados</span></h2>
+    <p data-r style="--d:.2s" style="color:var(--mut)">Projetos modernos, personalizados e prontos para atrair mais clientes.</p>
+  </div><a class="btn o s" href="#contato" data-r style="--d:.3s">Ver mais projetos <svg class="i"><use href="#ar"/></svg></a></div>
+  <div class="grid4">
+    <a class="w" href="barbearia.html" target="_blank" rel="noopener" data-r style="--d:.35s;text-decoration:none;color:inherit"><div class="t t1"><b>ESTILO QUE IMPRESSIONA</b></div><span>Barbearia</span></a>
+    <a class="w" href="estetica-automotiva.html" target="_blank" rel="noopener" data-r style="--d:.55s;text-decoration:none;color:inherit"><div class="t t2"><b>Seu carro em outro nível</b></div><span>Estética Automotiva</span></a>
+    <a class="w" href="https://isa-nails.onrender.com" target="_blank" rel="noopener" data-r style="--d:.75s;text-decoration:none;color:inherit"><div class="t t3"><b>Beleza que realça você</b></div><span>Salão de Beleza</span></a>
+    <a class="w" href="conveniencia.html" target="_blank" rel="noopener" data-r style="--d:.95s;text-decoration:none;color:inherit"><div class="t t4"><b>BEBIDAS GELADAS E MUITO MAIS</b></div><span>Conveniência</span></a>
+  </div>
+</div></section>
+
+<section id="contato"><div class="wrap">
+  <div>
+    <span class="tag" data-r>VAMOS CONVERSAR?</span>
+    <h2 data-r style="--d:.1s;font-size:clamp(34px,5vw,48px)">Leve seu negócio <span class="b">para o próximo nível.</span></h2>
+    <p data-r style="--d:.2s;margin-top:16px">Solicite um orçamento sem compromisso e descubra como a <span class="b">SD Technology</span> pode ajudar sua empresa a crescer.</p>
+    <a class="btn wa" data-r style="--d:.35s" href="https://wa.me/554784931069?text=olaa%20tenho%20interesse%20em%20conhecer%20os%20planos%20mensais" target="_blank" rel="noopener"><svg class="i" style="font-size:26px"><use href="#wa"/></svg>Falar no WhatsApp <svg class="i"><use href="#ar"/></svg></a>
+  </div>
+  <div class="stats">
+    <div class="st" data-r style="--d:.3s"><svg class="i"><use href="#ly"/></svg><div><b>+<span data-count="50">50</span></b><small>Projetos entregues</small></div></div>
+    <div class="st" data-r style="--d:.5s"><svg class="i"><use href="#tr"/></svg><div><b><span data-count="100">100</span>%</b><small>Clientes satisfeitos</small></div></div>
+    <div class="st" data-r style="--d:.7s"><svg class="i"><use href="#hs"/></svg><div><b>Suporte 24h</b><small>Sempre disponível</small></div></div>
+    <div class="st" data-r style="--d:.9s"><svg class="i"><use href="#ch"/></svg><div><b>Resultados</b><small>Mais clientes para você</small></div></div>
+  </div>
+</div></section>
+
+<div class="bar" aria-hidden="true"><i id="prog"></i></div>
+<button class="pl" id="pl" aria-label="Pausar animação">❚❚</button>
+
+<script>
+(function(){
+  var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('[data-r]');
+  function count(el){
+    var to=+el.dataset.count, t0=performance.now();
+    (function f(n){var p=Math.min(1,(n-t0)/1600);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0);
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !e.target.classList.contains('in')){
+        e.target.classList.add('in');
+        var c=e.target.querySelector('[data-count]'); if(c) count(c);
+      }
+    });
+  },{threshold:.25});
+  els.forEach(function(e){io.observe(e)});
+
+  var links=document.querySelectorAll('nav a');
+  var secs=['hero','servicos','trabalhos','contato'].map(function(i){return document.getElementById(i)});
+  function nav(){
+    var y=scrollY+window.innerHeight*.4,k=0;
+    secs.forEach(function(s,i){if(s.offsetTop<=y)k=i});
+    links.forEach(function(a,i){a.classList.toggle('on',(i===0&&k===0)||(i===1&&k===1)||(i===2&&k===2)||(i===4&&k===3))});
+  }
+  addEventListener('scroll',nav,{passive:true});
+
+  if(rm){document.getElementById('pl').style.display='none';return}
+
+  var holds=[5000,3800,4400,5200], mv=1700, back=2400;
+  var playing=true, t=0, last=performance.now(), seg=[], total=0;
+  var prog=document.getElementById('prog'), pl=document.getElementById('pl');
+  function ease(p){return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2}
+  function build(){
+    var max=document.documentElement.scrollHeight-innerHeight, hd=74;
+    var ys=secs.map(function(s,i){return i===0?0:Math.min(max,s.offsetTop-hd+1)});
+    seg=[];total=0;
+    ys.forEach(function(y,i){
+      seg.push({a:total,b:total+holds[i],y0:y,y1:y});total+=holds[i];
+      var ny=i<ys.length-1?ys[i+1]:0, d=i<ys.length-1?mv:back;
+      seg.push({a:total,b:total+d,y0:y,y1:ny});total+=d;
+    });
+  }
+  function reset(){els.forEach(function(e){e.classList.remove('in');io.unobserve(e);io.observe(e)})}
+  function yAt(){
+    for(var i=0;i<seg.length;i++){var s=seg[i];if(t<s.b){var p=(t-s.a)/(s.b-s.a);return s.y0+(s.y1-s.y0)*ease(p)}}
+    return 0;
+  }
+  function tick(n){
+    var dt=Math.min(64,n-last);last=n;
+    if(playing){
+      t+=dt;
+      if(t>=total){t=0;reset();scrollTo(0,0)}
+      scrollTo(0,yAt());
+      prog.style.width=(t/total*100)+'%';
+    }
+    requestAnimationFrame(tick);
+  }
+  function set(p){
+    playing=p;pl.textContent=p?'❚❚':'▶';pl.setAttribute('aria-label',p?'Pausar animação':'Reproduzir animação');
+    if(p){/* retoma a partir da posição atual mais próxima */
+      var best=0,bd=1e9;
+      for(var i=0;i<seg.length;i+=2){var d=Math.abs(seg[i].y0-scrollY);if(d<bd){bd=d;best=seg[i].a}}
+      t=best;
+    }
+  }
+  pl.addEventListener('click',function(){set(!playing)});
+  ['wheel','touchstart','keydown'].forEach(function(ev){addEventListener(ev,function(){if(playing)set(false)},{passive:true})});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
+    e.preventDefault();set(false);var s=document.querySelector(a.getAttribute('href'));
+    scrollTo({top:s.id==='hero'?0:s.offsetTop-73,behavior:'smooth'});
+  })});
+  addEventListener('resize',build);
+  addEventListener('load',build);
+  build();
+  requestAnimationFrame(function(n){last=n;tick(n)});
+})();
+</script>
+</body>
+</html>
