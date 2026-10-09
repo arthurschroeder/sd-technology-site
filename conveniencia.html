@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conveniência 24h — Bebidas geladas e muito mais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Baloo+2:wght@600;800&display=swap">
+<style>
+:root{--bg:#120b03;--bg2:#17100a;--card:#1d140b;--line:#332212;--or:#ff8a1e;--yl:#ffc93c;--text:#fff6ea;--mut:#c9ab8b;color-scheme:dark}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2{font-family:'Baloo 2',Inter,sans-serif;margin:0;line-height:1.05}
+h1{font-size:clamp(36px,6vw,56px);font-weight:800;margin:18px 0 20px}
+h2{font-size:clamp(26px,4vw,36px);font-weight:800;margin:12px 0 10px}
+.o{color:var(--or)}
+p{color:#e8d4bd;line-height:1.6;margin:0}
+section{position:relative}
+[data-r]{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+[data-r].in{opacity:1;transform:none}
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(18,11,3,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;flex-direction:column;line-height:1;font-family:'Baloo 2',sans-serif;font-weight:800}
+.logo b{font-size:24px}.logo b span{color:var(--or)}
+.logo small{font-size:9px;letter-spacing:3px;color:var(--mut);margin-top:3px;font-family:Inter,sans-serif}
+nav{display:flex;gap:30px;font-size:14px;font-weight:500}
+nav a{color:var(--text);text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;font:700 14px 'Baloo 2',sans-serif;padding:14px 26px;border:1px solid var(--or);color:#1a0f04;background:linear-gradient(120deg,var(--yl),var(--or));box-shadow:0 0 24px rgba(255,138,30,.4);text-decoration:none;cursor:pointer}
+.btn.o{background:transparent;color:var(--or)}
+.btn.s{padding:11px 20px}
+.tag{display:inline-block;border:1px solid var(--or);background:rgba(255,138,30,.1);color:var(--yl);font-weight:700;font-size:12.5px;padding:7px 16px;border-radius:999px;letter-spacing:1px}
+#hero{min-height:100vh;padding:130px 0 70px;display:flex;align-items:center;
+background:radial-gradient(60% 70% at 78% 35%,rgba(255,138,30,.2),transparent 70%),linear-gradient(180deg,#120b03,#0a0601)}
+#hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+#hero p{font-size:18px;max-width:460px}
+.ctas{display:flex;gap:16px;margin:30px 0 36px;flex-wrap:wrap}
+.perks{display:flex;gap:26px;flex-wrap:wrap;font-size:13px;color:var(--mut)}
+.perks b{color:var(--yl)}
+.cimg{aspect-ratio:4/3;border-radius:14px;background:linear-gradient(135deg,#2a1b08,#0a0601 60%,#3a2408);border:1px solid var(--line);position:relative;overflow:hidden;box-shadow:0 0 60px rgba(255,138,30,.22)}
+.cimg:before{content:"🥤";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:110px;filter:drop-shadow(0 0 28px rgba(255,138,30,.5))}
+#produtos{padding:90px 0;background:var(--bg2);border-top:1px solid var(--line)}
+.center{text-align:center}
+.center p{font-size:16px;color:var(--mut);max-width:560px;margin:0 auto}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 20px;text-align:center}
+.card .ic{font-size:34px;margin-bottom:10px}
+.card h3{margin:0 0 6px;font-size:16px;font-family:'Baloo 2',sans-serif}
+.card p{font-size:13px}
+#promo{padding:80px 0;background:var(--bg)}
+.promo-box{background:linear-gradient(120deg,rgba(255,138,30,.15),rgba(255,201,60,.05));border:1px solid var(--line);border-radius:18px;padding:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.promo-box h3{font-family:'Baloo 2',sans-serif;font-size:22px;margin:0 0 6px}
+#horario{padding:70px 0;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hrow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:30px}
+.hd{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 22px;flex:1;min-width:130px;text-align:center}
+.hd b{display:block;font-family:'Baloo 2',sans-serif;color:var(--yl)}
+#contato{padding:90px 0;background:var(--bg)}
+#contato .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+#contato p{font-size:17px;max-width:440px;margin-bottom:30px;color:var(--mut)}
+.btn.wa{padding:20px 34px;font-size:16px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.st{text-align:center}
+.st b{display:block;font-size:30px;font-family:'Baloo 2',sans-serif;color:var(--yl)}
+.st small{color:var(--mut);font-size:12px}
+footer{padding:28px 0;text-align:center;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--or);text-decoration:none}
+@media(max-width:860px){#hero .wrap,#contato .wrap{grid-template-columns:1fr}.grid4{grid-template-columns:repeat(2,1fr)}nav{display:none}.promo-box{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="logo"><b>FAST<span> STOP</span></b><small>CONVENIÊNCIA 24H</small></div>
+  <nav><a href="#hero">Início</a><a href="#produtos">Produtos</a><a href="#promo">Promoções</a><a href="#horario">Horários</a><a href="#contato">Contato</a></nav>
+  <a class="btn s" href="#contato">Pedir Delivery</a>
+</div></header>
+
+<section id="hero"><div class="wrap">
+  <div>
+    <span class="tag" data-r>ABERTO 24 HORAS</span>
+    <h1 data-r style="--d:.15s">Bebidas geladas <span class="o">e muito mais</span>.</h1>
+    <p data-r style="--d:.3s">Sua conveniência aberta 24 horas, com bebidas sempre geladas, salgados, snacks e delivery rápido até a sua porta.</p>
+    <div class="ctas" data-r style="--d:.45s"><a class="btn" href="#contato">Pedir Delivery</a><a class="btn o" href="#produtos">Ver Produtos</a></div>
+    <div class="perks" data-r style="--d:.6s">
+      <span><b>24h</b> todos os dias</span>
+      <span><b>15 min</b> entrega rápida</span>
+      <span><b>+300</b> produtos</span>
+    </div>
+  </div>
+  <div class="cimg" data-r style="--d:.35s"></div>
+</div></section>
+
+<section id="produtos"><div class="wrap center">
+  <span class="tag" data-r>NOSSOS PRODUTOS</span>
+  <h2 data-r style="--d:.1s">Tudo que você precisa, <span class="o">a qualquer hora</span></h2>
+  <p data-r style="--d:.2s">Bebidas geladas, lanches, snacks e muito mais, sempre à disposição.</p>
+  <div class="grid4">
+    <div class="card" data-r style="--d:.3s"><div class="ic">🧊</div><h3>Bebidas Geladas</h3><p>Cervejas, refrigerantes e energéticos sempre no ponto.</p></div>
+    <div class="card" data-r style="--d:.4s"><div class="ic">🥪</div><h3>Salgados e Lanches</h3><p>Lanches fresquinhos preparados na hora.</p></div>
+    <div class="card" data-r style="--d:.5s"><div class="ic">🍫</div><h3>Doces e Snacks</h3><p>Chocolates, salgadinhos e guloseimas variadas.</p></div>
+    <div class="card" data-r style="--d:.6s"><div class="ic">🚴</div><h3>Delivery Rápido</h3><p>Entrega em até 15 minutos na sua região.</p></div>
+  </div>
+</div></section>
+
+<section id="promo"><div class="wrap">
+  <div class="promo-box" data-r>
+    <div><h3>🔥 Combo Noite: 2 cervejas + 1 salgado</h3><p>Apenas R$ 19,90 — válido todos os dias após as 20h.</p></div>
+    <a class="btn" href="#contato">Aproveitar Agora</a>
+  </div>
+</div></section>
+
+<section id="horario"><div class="wrap">
+  <div class="center"><span class="tag" data-r>FUNCIONAMENTO</span><h2 data-r style="--d:.1s">Estamos sempre <span class="o">abertos</span></h2></div>
+  <div class="hrow">
+    <div class="hd" data-r style="--d:.3s"><b>Todos os dias</b>24 horas</div>
+    <div class="hd" data-r style="--d:.4s"><b>Delivery</b>06h às 02h</div>
+    <div class="hd" data-r style="--d:.5s"><b>Loja física</b>Aberta 24h</div>
+  </div>
+</div></section>
+
+<section id="contato"><div class="wrap">
+  <div>
+    <span class="tag" data-r>FICOU COM VONTADE?</span>
+    <h2 data-r style="--d:.1s;font-size:clamp(28px,5vw,42px)">Peça agora pelo <span class="o">WhatsApp.</span></h2>
+    <p data-r style="--d:.2s;margin-top:16px">Faça seu pedido e receba rapidinho, a qualquer hora do dia ou da noite.</p>
+    <a class="btn wa" data-r style="--d:.35s" href="https://wa.me/5547999990002?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido%20na%20convenci%C3%AAncia" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
+  <div class="stats">
+    <div class="st" data-r style="--d:.3s"><b>24h</b><small>Todos os dias</small></div>
+    <div class="st" data-r style="--d:.4s"><b>15min</b><small>Entrega média</small></div>
+    <div class="st" data-r style="--d:.5s"><b>300+</b><small>Produtos disponíveis</small></div>
+    <div class="st" data-r style="--d:.6s"><b>4.8★</b><small>Avaliação média</small></div>
+  </div>
+</div></section>
+
+<footer>Site de demonstração de portfólio — desenvolvido por <a href="index.html">SD Technology</a></footer>
+
+<script>
+var els = document.querySelectorAll('[data-r]');
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:.2});
+els.forEach(function(e){io.observe(e)});
+</script>
+</body>
+</html>
