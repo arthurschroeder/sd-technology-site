@@ -72,6 +72,15 @@ background:radial-gradient(60% 70% at 78% 40%,rgba(22,119,255,.28),transparent 7
 .card h3{margin:0 0 8px;font-size:17px}
 .card p{font-size:13.5px;color:var(--mut)}
 .card .go{position:absolute;right:18px;bottom:14px;color:var(--neon)}
+/* marketing */
+#marketing{padding:90px 0;min-height:100vh;display:flex;align-items:center;background:var(--bg);border-top:1px solid var(--line)}
+#marketing .wrap{display:grid;grid-template-columns:1fr .85fr;gap:50px;align-items:center}
+#marketing p{font-size:17px;max-width:460px;color:var(--mut)}
+#marketing .feat{display:flex;flex-direction:column;gap:18px;margin:28px 0 36px}
+#marketing .feat span{display:flex;align-items:center;gap:12px;font-size:15px}
+#marketing .feat .i{font-size:24px;color:var(--neon)}
+.reel-wrap{display:flex;justify-content:center}
+.reel-video{width:100%;max-width:400px;border-radius:18px;box-shadow:0 0 40px rgba(22,119,255,.35);aspect-ratio:9/16;object-fit:cover;background:#000}
 /* works */
 #trabalhos{padding:90px 0;min-height:100vh;display:flex;align-items:center;background:var(--bg)}
 .head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
@@ -109,7 +118,7 @@ background:radial-gradient(60% 70% at 78% 40%,rgba(22,119,255,.28),transparent 7
 .pl:focus-visible,.btn:focus-visible{outline:2px solid #7ec0ff;outline-offset:3px}
 @media(max-width:900px){
  nav{display:none}header .btn{padding:10px 16px;font-size:13px}
- #hero .wrap,#contato .wrap{grid-template-columns:1fr}
+ #hero .wrap,#contato .wrap,#marketing .wrap{grid-template-columns:1fr}
  .stage{height:340px}.grid3{grid-template-columns:1fr}.grid4{grid-template-columns:1fr 1fr}
  .wrap{padding:0 20px}
 }
@@ -131,7 +140,7 @@ background:radial-gradient(60% 70% at 78% 40%,rgba(22,119,255,.28),transparent 7
 
 <header><div class="wrap">
   <div class="logo"><b>SD</b><small>TECHNOLOGY</small></div>
-  <nav><a class="on" href="#hero">Início</a><a href="#servicos">Serviços</a><a href="#trabalhos">Portfólio</a><a href="#hero">Sobre</a><a href="#contato">Contato</a></nav>
+  <nav><a class="on" href="#hero">Início</a><a href="#servicos">Serviços</a><a href="#marketing">Marketing</a><a href="#trabalhos">Portfólio</a><a href="#hero">Sobre</a><a href="#contato">Contato</a></nav>
   <a class="btn s" href="https://wa.me/554784931069?text=olaa%20tenho%20interesse%20em%20conhecer%20os%20planos%20mensais" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Fale Conosco</a>
 </div></header>
 
@@ -165,6 +174,23 @@ background:radial-gradient(60% 70% at 78% 40%,rgba(22,119,255,.28),transparent 7
     <div class="card" data-r style="--d:.3s"><div class="ic"><svg class="i"><use href="#mon"/></svg></div><div><h3>Criação de Sites</h3><p>Sites do simples ao 3D, modernos, rápidos e focados em resultados.</p></div><svg class="i go"><use href="#ar"/></svg></div>
     <div class="card" data-r style="--d:.5s"><div class="ic"><svg class="i"><use href="#ch"/></svg></div><div><h3>Marketing Digital</h3><p>Estratégias para atrair mais clientes e aumentar suas vendas.</p></div><svg class="i go"><use href="#ar"/></svg></div>
     <div class="card" data-r style="--d:.7s"><div class="ic"><svg class="i"><use href="#hs"/></svg></div><div><h3>Suporte 24 Horas</h3><p>Atendimento sempre que precisar, para seu negócio nunca parar.</p></div><svg class="i go"><use href="#ar"/></svg></div>
+  </div>
+</div></section>
+
+<section id="marketing"><div class="wrap">
+  <div>
+    <span class="tag" data-r>MARKETING DIGITAL</span>
+    <h2 data-r style="--d:.1s">Conteúdo que <span class="b">vende de verdade</span></h2>
+    <p data-r style="--d:.2s">Além de sites, criamos estratégias de marketing digital que colocam sua marca em frente ao cliente certo, no momento certo.</p>
+    <div class="feat" data-r style="--d:.3s">
+      <span><svg class="i"><use href="#bolt"/></svg>Vídeos e conteúdos que geram engajamento</span>
+      <span><svg class="i"><use href="#ch"/></svg>Estratégia pensada para converter seguidores em clientes</span>
+      <span><svg class="i"><use href="#hs"/></svg>Acompanhamento e suporte contínuo</span>
+    </div>
+    <a class="btn" href="#contato" data-r style="--d:.4s"><svg class="i"><use href="#ar"/></svg>Quero Divulgar Minha Marca</a>
+  </div>
+  <div class="reel-wrap" data-r style="--d:.3s">
+    <video class="reel-video" src="marketing-video.mp4" controls playsinline preload="metadata"></video>
   </div>
 </div></section>
 
@@ -219,17 +245,17 @@ background:radial-gradient(60% 70% at 78% 40%,rgba(22,119,255,.28),transparent 7
   els.forEach(function(e){io.observe(e)});
 
   var links=document.querySelectorAll('nav a');
-  var secs=['hero','servicos','trabalhos','contato'].map(function(i){return document.getElementById(i)});
+  var secs=['hero','servicos','marketing','trabalhos','contato'].map(function(i){return document.getElementById(i)});
   function nav(){
     var y=scrollY+window.innerHeight*.4,k=0;
     secs.forEach(function(s,i){if(s.offsetTop<=y)k=i});
-    links.forEach(function(a,i){a.classList.toggle('on',(i===0&&k===0)||(i===1&&k===1)||(i===2&&k===2)||(i===4&&k===3))});
+    links.forEach(function(a,i){a.classList.toggle('on',(i===0&&k===0)||(i===1&&k===1)||(i===2&&k===2)||(i===3&&k===3)||(i===5&&k===4))});
   }
   addEventListener('scroll',nav,{passive:true});
 
   if(rm){document.getElementById('pl').style.display='none';return}
 
-  var holds=[5000,3800,4400,5200], mv=1700, back=2400;
+  var holds=[5000,3800,4200,4400,5200], mv=1700, back=2400;
   var playing=true, t=0, last=performance.now(), seg=[], total=0;
   var prog=document.getElementById('prog'), pl=document.getElementById('pl');
   function ease(p){return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2}
