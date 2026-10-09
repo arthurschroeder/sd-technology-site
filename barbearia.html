@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Barbearia Vintage — Estilo que impressiona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Playfair+Display:wght@600;800&display=swap">
+<style>
+:root{--bg:#120f0c;--bg2:#17130f;--card:#1c1712;--line:#2d241a;--gold:#d4a24c;--text:#f5efe6;--mut:#b4a894;color-scheme:dark}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2{font-family:'Playfair Display',serif;margin:0;line-height:1.05}
+h1{font-size:clamp(38px,6vw,58px);font-weight:800;margin:18px 0 20px}
+h2{font-size:clamp(28px,4vw,38px);font-weight:800;margin:12px 0 10px}
+.g{color:var(--gold)}
+p{color:#d8cdbb;line-height:1.6;margin:0}
+section{position:relative}
+[data-r]{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+[data-r].in{opacity:1;transform:none}
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(18,15,12,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;flex-direction:column;line-height:1;font-family:'Playfair Display',serif;font-weight:800}
+.logo b{font-size:24px;letter-spacing:1px}.logo b span{color:var(--gold)}
+.logo small{font-size:9px;letter-spacing:3px;color:var(--mut);margin-top:3px;font-family:Inter,sans-serif}
+nav{display:flex;gap:30px;font-size:14px;font-weight:500}
+nav a{color:var(--text);text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;font:600 14px Inter,sans-serif;padding:14px 26px;border:1px solid var(--gold);color:#17130f;background:var(--gold);box-shadow:0 0 24px rgba(212,162,76,.35);text-decoration:none;cursor:pointer}
+.btn.o{background:transparent;color:var(--gold)}
+.btn.s{padding:11px 20px}
+.tag{display:inline-block;border:1px solid var(--gold);background:rgba(212,162,76,.08);color:var(--gold);font-weight:600;font-size:12.5px;padding:7px 16px;border-radius:999px;letter-spacing:1px}
+/* hero */
+#hero{min-height:100vh;padding:130px 0 70px;display:flex;align-items:center;
+background:radial-gradient(60% 70% at 78% 35%,rgba(212,162,76,.18),transparent 70%),linear-gradient(180deg,#120f0c,#0b0906)}
+#hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+#hero p{font-size:18px;max-width:460px}
+.ctas{display:flex;gap:16px;margin:30px 0 36px;flex-wrap:wrap}
+.perks{display:flex;gap:26px;flex-wrap:wrap;font-size:13px;color:var(--mut)}
+.perks b{color:var(--gold)}
+.bimg{aspect-ratio:4/3;border-radius:14px;background:linear-gradient(135deg,#241c14,#0b0906 60%,#3a2410);border:1px solid var(--line);position:relative;overflow:hidden;box-shadow:0 0 60px rgba(212,162,76,.2)}
+.bimg:before{content:"💈";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:110px;filter:drop-shadow(0 0 28px rgba(212,162,76,.45))}
+/* services */
+#servicos{padding:90px 0;background:var(--bg2);border-top:1px solid var(--line)}
+.center{text-align:center}
+.center p{font-size:16px;color:var(--mut);max-width:560px;margin:0 auto}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 24px;position:relative}
+.card .ic{font-size:30px;margin-bottom:14px}
+.card h3{margin:0 0 8px;font-size:18px;font-family:'Playfair Display',serif}
+.card p{font-size:13.5px}
+.card .price{position:absolute;right:20px;top:26px;color:var(--gold);font-weight:700;font-family:'Playfair Display',serif}
+/* assinatura */
+#planos{padding:90px 0;background:var(--bg)}
+.plan-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:34px 26px;text-align:center}
+.plan.pop{border-color:var(--gold);box-shadow:0 0 36px rgba(212,162,76,.2);transform:scale(1.03)}
+.plan .pname{font-family:'Playfair Display',serif;font-weight:700;font-size:17px}
+.plan .price{font-size:38px;font-weight:800;margin:14px 0;font-family:'Playfair Display',serif;color:var(--gold)}
+.plan .price small{font-size:14px;color:var(--mut);font-weight:400}
+.plan ul{list-style:none;padding:0;margin:20px 0;text-align:left;font-size:14px;color:#d8cdbb}
+.plan li{padding:8px 0;border-bottom:1px solid var(--line)}
+.plan li:before{content:"✓ ";color:var(--gold);font-weight:700}
+/* horario */
+#horario{padding:70px 0;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hrow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:30px}
+.hd{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 22px;flex:1;min-width:130px;text-align:center}
+.hd b{display:block;font-family:'Playfair Display',serif;color:var(--gold)}
+/* contato */
+#contato{padding:90px 0;background:var(--bg)}
+#contato .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+#contato p{font-size:17px;max-width:440px;margin-bottom:30px;color:var(--mut)}
+.btn.wa{padding:20px 34px;font-size:16px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.st{text-align:center}
+.st b{display:block;font-size:30px;font-family:'Playfair Display',serif;color:var(--gold)}
+.st small{color:var(--mut);font-size:12px}
+footer{padding:28px 0;text-align:center;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--gold);text-decoration:none}
+@media(max-width:860px){#hero .wrap,#contato .wrap{grid-template-columns:1fr}.grid3,.plan-row{grid-template-columns:1fr}nav{display:none}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="logo"><b>BARBER<span> VINTAGE</span></b><small>ESTILO QUE IMPRESSIONA</small></div>
+  <nav><a href="#hero">Início</a><a href="#servicos">Serviços</a><a href="#planos">Assinatura</a><a href="#horario">Horários</a><a href="#contato">Contato</a></nav>
+  <a class="btn s" href="#contato">Agendar</a>
+</div></header>
+
+<section id="hero"><div class="wrap">
+  <div>
+    <span class="tag" data-r>TRADIÇÃO E ESTILO</span>
+    <h1 data-r style="--d:.15s">Estilo que <span class="g">impressiona</span>.</h1>
+    <p data-r style="--d:.3s">Cortes modernos e clássicos, barba terapia e um ambiente feito para você relaxar e sair diferente.</p>
+    <div class="ctas" data-r style="--d:.45s"><a class="btn" href="#contato">Agendar Horário</a><a class="btn o" href="#servicos">Ver Serviços</a></div>
+    <div class="perks" data-r style="--d:.6s">
+      <span><b>+5.000</b> cortes realizados</span>
+      <span><b>10 anos</b> de tradição</span>
+      <span><b>5 barbeiros</b> especialistas</span>
+    </div>
+  </div>
+  <div class="bimg" data-r style="--d:.35s"></div>
+</div></section>
+
+<section id="servicos"><div class="wrap center">
+  <span class="tag" data-r>NOSSOS SERVIÇOS</span>
+  <h2 data-r style="--d:.1s">Cuidado completo para o <span class="g">homem moderno</span></h2>
+  <p data-r style="--d:.2s">Serviços pensados para realçar seu estilo, com atenção aos detalhes.</p>
+  <div class="grid3" style="text-align:left">
+    <div class="card" data-r style="--d:.3s"><div class="ic">💇</div><h3>Corte Masculino</h3><p>Cortes clássicos e modernos, feitos sob medida para o seu estilo.</p><span class="price">R$ 45</span></div>
+    <div class="card" data-r style="--d:.4s"><div class="ic">🪒</div><h3>Barba Terapia</h3><p>Toalha quente, navalha e produtos premium para uma barba impecável.</p><span class="price">R$ 35</span></div>
+    <div class="card" data-r style="--d:.5s"><div class="ic">✂️</div><h3>Combo Corte + Barba</h3><p>O pacote completo para ficar com o visual renovado da cabeça aos pés.</p><span class="price">R$ 70</span></div>
+    <div class="card" data-r style="--d:.6s"><div class="ic">👁️</div><h3>Design de Sobrancelha</h3><p>Acabamento com navalha para destacar o olhar.</p><span class="price">R$ 20</span></div>
+    <div class="card" data-r style="--d:.7s"><div class="ic">🎨</div><h3>Coloração e Platinado</h3><p>Técnicas modernas de coloração para quem quer ousar no visual.</p><span class="price">R$ 90</span></div>
+    <div class="card" data-r style="--d:.8s"><div class="ic">🧖</div><h3>Skincare Facial</h3><p>Limpeza de pele e hidratação facial para complementar seu cuidado.</p><span class="price">R$ 50</span></div>
+  </div>
+</div></section>
+
+<section id="planos"><div class="wrap center">
+  <span class="tag" data-r>CLUBE DE ASSINATURA</span>
+  <h2 data-r style="--d:.1s">Corte ilimitado todo <span class="g">mês</span></h2>
+  <p data-r style="--d:.2s">Assine e tenha prioridade na agenda, descontos exclusivos e cortes sem limite.</p>
+  <div class="plan-row">
+    <div class="plan" data-r style="--d:.3s">
+      <div class="pname">Essencial</div>
+      <div class="price">R$ 99<small>/mês</small></div>
+      <ul><li>2 cortes no mês</li><li>10% off em produtos</li></ul>
+      <a class="btn o" href="#contato" style="width:100%;justify-content:center">Assinar</a>
+    </div>
+    <div class="plan pop" data-r style="--d:.4s">
+      <div class="pname">Gold</div>
+      <div class="price">R$ 159<small>/mês</small></div>
+      <ul><li>Cortes ilimitados</li><li>1 barba terapia/mês</li><li>Prioridade na agenda</li></ul>
+      <a class="btn" href="#contato" style="width:100%;justify-content:center">Assinar</a>
+    </div>
+    <div class="plan" data-r style="--d:.5s">
+      <div class="pname">Black</div>
+      <div class="price">R$ 219<small>/mês</small></div>
+      <ul><li>Cortes e barba ilimitados</li><li>Skincare mensal</li><li>Bebida cortesia</li></ul>
+      <a class="btn o" href="#contato" style="width:100%;justify-content:center">Assinar</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="horario"><div class="wrap">
+  <div class="center"><span class="tag" data-r>FUNCIONAMENTO</span><h2 data-r style="--d:.1s">Estamos <span class="g">abertos</span> para você</h2></div>
+  <div class="hrow">
+    <div class="hd" data-r style="--d:.3s"><b>Seg – Sex</b>09h às 20h</div>
+    <div class="hd" data-r style="--d:.4s"><b>Sábado</b>09h às 18h</div>
+    <div class="hd" data-r style="--d:.5s"><b>Domingo</b>Fechado</div>
+  </div>
+</div></section>
+
+<section id="contato"><div class="wrap">
+  <div>
+    <span class="tag" data-r>VAMOS MARCAR SEU HORÁRIO?</span>
+    <h2 data-r style="--d:.1s;font-size:clamp(28px,5vw,42px)">Garanta seu horário <span class="g">agora mesmo.</span></h2>
+    <p data-r style="--d:.2s;margin-top:16px">Fale com a gente pelo WhatsApp e agende seu corte sem sair de casa.</p>
+    <a class="btn wa" data-r style="--d:.35s" href="https://wa.me/5547999990001?text=Ol%C3%A1%2C%20quero%20agendar%20um%20hor%C3%A1rio%20na%20barbearia" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
+  <div class="stats">
+    <div class="st" data-r style="--d:.3s"><b>5.000+</b><small>Cortes realizados</small></div>
+    <div class="st" data-r style="--d:.4s"><b>10</b><small>Anos de tradição</small></div>
+    <div class="st" data-r style="--d:.5s"><b>4.9★</b><small>Avaliação média</small></div>
+    <div class="st" data-r style="--d:.6s"><b>5</b><small>Barbeiros especialistas</small></div>
+  </div>
+</div></section>
+
+<footer>Site de demonstração de portfólio — desenvolvido por <a href="index.html">SD Technology</a></footer>
+
+<script>
+var els = document.querySelectorAll('[data-r]');
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:.2});
+els.forEach(function(e){io.observe(e)});
+</script>
+</body>
+</html>
